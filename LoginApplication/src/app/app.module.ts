@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { AmexioWidgetModule } from "amexio-ng-extensions";
+import { AmexioLayoutModule, AmexioWidgetModule } from "amexio-ng-extensions";
 import {
   AmexioChartsModule,
   AmexioDashBoardModule,
@@ -20,7 +20,8 @@ import { ShowBooksComponent } from './components/show-books/show-books.component
 import { BooksService } from './service/books.service';
 import { AddBookComponent } from './components/add-book/add-book.component';
 import { TranslocoRootModule } from './transloco/transloco-root.module';
-
+import { UpdateBookComponent } from './components/show-books/update-book/update-book.component';
+import { ErrorPageComponent } from './error-page/error-page.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +29,9 @@ import { TranslocoRootModule } from './transloco/transloco-root.module';
     DashboardComponent,
     LoginComponent,
     ShowBooksComponent,
-    AddBookComponent
+    AddBookComponent,
+    UpdateBookComponent,
+    ErrorPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,6 +44,7 @@ import { TranslocoRootModule } from './transloco/transloco-root.module';
     AmexioDashBoardModule,
     AmexioEnterpriseModule,
     AmexioMapModule,
+    AmexioLayoutModule,
     ReactiveFormsModule,
     TranslocoRootModule
   ],

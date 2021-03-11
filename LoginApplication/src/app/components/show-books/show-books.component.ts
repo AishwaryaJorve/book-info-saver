@@ -12,6 +12,11 @@ export class ShowBooksComponent implements OnInit {
   searchData:string;
   bookNameForSearch:string='';
   allBooks: Books[] = [];
+  updateBook:boolean=false;
+  idOfBookToUpdate:string;
+
+  confirmdialoguematerial: boolean;
+  confirmdialoguenonmaterial:boolean;
   constructor(
     private books: BooksService,
     private router: Router,
@@ -21,7 +26,6 @@ export class ShowBooksComponent implements OnInit {
   ngOnInit() {
     //when load page should display all book
     this.fetchBooksFromBooksService();
-    // this.searchBookByName();
   }
 
   //called to the fetchAllBooksFromAPI() of service method
@@ -37,8 +41,16 @@ export class ShowBooksComponent implements OnInit {
     },1000)
   }
 
+  // comes id of book which to be update through button onclick
+  onupdateClick(idOfBookToUpdate){
+    this.idOfBookToUpdate=idOfBookToUpdate;
+    this.updateBook=true;
+  }
+
+  //called to the getBookByBookName() of the service method
   searchBookByName(){
     this.allBooks = this.books.getBookByBookName(this.bookNameForSearch);
     console.log(this.allBooks);
   }
+
 }

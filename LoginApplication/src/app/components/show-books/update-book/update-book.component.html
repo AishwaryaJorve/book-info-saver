@@ -2,33 +2,12 @@
 
 <div class="add-book-form col-md-6 offset-md-3">
 
-  <h1 class="text-center">Add Book</h1><hr><br>
-  <amexio-form [formGroup]="addBookForm" [header]="true">
-    <amexio-form-header> Add book Form </amexio-form-header>
+  <h1 class="text-center">Update Book</h1><hr><br>
+  <amexio-form [formGroup]="updateBookForm" [header]="true">
+    <amexio-form-header> Update book </amexio-form-header>
     <amexio-form-body>
       <amexio-row>
         <amexio-column size="10">
-          <!-- <amexio-text-input
-            formControlName="id"
-            [field-label]="'ID'"
-            [allow-blank]="false"
-            [error-msg]="'Please enter ID'"
-            [enable-popover]="true"
-            [place-holder]="'Please enter ID'"
-            [icon-feedback]="false"
-          >
-          </amexio-text-input> -->
-
-          <amexio-text-input
-            formControlName="bookName"
-            [field-label]="'Book Name'"
-            [allow-blank]="false"
-            [error-msg]="'Please enter book name'"
-            [enable-popover]="true"
-            [place-holder]="'Please enter book name'"
-            [icon-feedback]="false"
-          >
-          </amexio-text-input>
 
           <amexio-text-input
           formControlName="authorName"
@@ -57,11 +36,23 @@
     </amexio-form-body>
     <amexio-form-action>
       <amexio-button
-      (onClick)="onClickAddBook()"
-      [disabled]="!addBookForm.valid"
-        class="col-md-6 offset-md-3"
+      (onClick)="onUpdateBook()"
+      [disabled]="!updateBookForm.valid"
         [label]="'Save'"
         [type]="'theme-color'"
+        [tooltip]="'toolTip'"
+        [icon]="'icon'"
+        [disabled]="false"
+        [form-bind]="'form-bind'"
+        [size]="'small'"
+        [loading]="false"
+        [block]="false"
+      >
+      </amexio-button>
+      <amexio-button
+      (onClick)="onCancleUpdateBook()"
+        [label]="'Cancle'"
+        [type]="'green'"
         [tooltip]="'toolTip'"
         [icon]="'icon'"
         [disabled]="false"
@@ -74,6 +65,8 @@
     </amexio-form-action>
   </amexio-form>
 
+<!--
+  <div *ngIf="formUpdated">
 
-  <h1 *ngIf="formAdded">Book Added Succesfully!</h1>
+  </div> -->
 </div>

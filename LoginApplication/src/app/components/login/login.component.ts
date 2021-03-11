@@ -15,9 +15,10 @@ import { ActivatedRoute, Router } from "@angular/router";
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
-
   model: AppModel;
   msg: any;
+
+
 
   constructor(
     private router: Router,

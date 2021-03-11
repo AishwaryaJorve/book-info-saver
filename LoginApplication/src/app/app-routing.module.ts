@@ -1,37 +1,53 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { AppComponent } from './app.component';
-import { AddBookComponent } from './components/add-book/add-book.component';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { LoginComponent } from './components/login/login.component';
-import { ShowBooksComponent } from './components/show-books/show-books.component';
+import { NgModule } from "@angular/core";
+import { Routes, RouterModule } from "@angular/router";
+import { AppComponent } from "./app.component";
+import { AddBookComponent } from "./components/add-book/add-book.component";
+import { DashboardComponent } from "./components/dashboard/dashboard.component";
+import { LoginComponent } from "./components/login/login.component";
+import { ShowBooksComponent } from "./components/show-books/show-books.component";
+import { UpdateBookComponent } from "./components/show-books/update-book/update-book.component";
+import { ErrorPageComponent } from "./error-page/error-page.component";
 
 const appRoutes: Routes = [
-{
-  path:'showbooks',
-  component:ShowBooksComponent,
-  pathMatch:'full'
-},
-{
-  path:'addbook',
-  component:AddBookComponent,
-  pathMatch:'full'
-},
-{
-  path:'',
-  component:LoginComponent,
-  pathMatch:'full'
-},
-{
-  path:'dashboard',
-  component:DashboardComponent,
-  pathMatch:'full'
-}
-
-]
+  {
+    path: "updatebook/:id",
+    component: UpdateBookComponent,
+    pathMatch: "full",
+  },
+  {
+    path: "showbooks",
+    component: ShowBooksComponent,
+    pathMatch: "full",
+  },
+  {
+    path: "addbook",
+    component: AddBookComponent,
+    pathMatch: "full",
+  },
+  // {
+  //   path:'',
+  //   component:LoginComponent,
+  //   pathMatch:'full'
+  // },
+  {
+    path: "dashboard",
+    component: DashboardComponent,
+    pathMatch: "full",
+  },
+  {
+    path: "",
+    component: DashboardComponent,
+    pathMatch: "full",
+  },
+  { path: "error-page", component: ErrorPageComponent },
+  {
+    path: "**",
+    redirectTo: "error-page",
+  },
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(appRoutes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

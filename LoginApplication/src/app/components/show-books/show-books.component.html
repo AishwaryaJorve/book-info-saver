@@ -1,30 +1,29 @@
-<app-navbar></app-navbar>
-<div class="showbooks col-md-6 offset-md-3">
+<!-- <app-navbar></app-navbar> -->
+<div class="showbooks col-md-6 offset-md-3" *ngIf="!updateBook">
   <hr />
-
   <br /><br />
-
   <amexio-row>
     <amexio-column [size]="3">
-  <amexio-text-input
-    place-holder="Search Book here"
-    icon-feedback="true"
-    [(ngModel)]="bookNameForSearch"
-  >
-  </amexio-text-input></amexio-column>
+      <amexio-text-input
+        place-holder="Search Book here"
+        icon-feedback="true"
+        [(ngModel)]="bookNameForSearch"
+      >
+      </amexio-text-input
+    ></amexio-column>
 
-  <amexio-button
-  (onClick)="searchBookByName()"
-    class="search-button"
-    [label]="'Search'"
-    [type]="'theme-color'"
-    [tooltip]="'toolTip'"
-    [icon]="'icon'"
-    [form-bind]="'form-bind'"
-    [size]="'medium'"
-  >
-  </amexio-button>
-</amexio-row>
+    <amexio-button
+      (onClick)="searchBookByName()"
+      class="search-button"
+      [label]="'Search'"
+      [type]="'theme-color'"
+      [tooltip]="'toolTip'"
+      [icon]="'icon'"
+      [form-bind]="'form-bind'"
+      [size]="'medium'"
+    >
+    </amexio-button>
+  </amexio-row>
 
   <amexio-card
     class="col-md-6 offset-md-3"
@@ -33,12 +32,9 @@
     [footer-align]="'right'"
     *ngFor="let book of allBooks"
   >
-    <hr />
-    <br /><br />
     <amexio-body>
+      <amexio-label size="small-bold">{{ book.bookName }}</amexio-label>
       <br /><br />
-      <amexio-label size="small-bold">{{ book.bookName }}</amexio-label
-      ><br /><br />
       <amexio-label size="default"> {{ book.discription }} </amexio-label><br />
       <amexio-label size="small"> -{{ book.authorName }} </amexio-label>
     </amexio-body>
@@ -46,9 +42,21 @@
       <amexio-button
         (onClick)="onDeleteClickDeleteBook(book.id)"
         [label]="'Delete'"
+        [tooltip]="'delete'"
+        [icon]="'fa fa-trash'"
         [type]="'danger'"
+      >
+      </amexio-button>
+      <amexio-button
+        (onClick)="onupdateClick(book.id)"
+        [label]="'Update'"
+        [type]="'primary'"
       >
       </amexio-button>
     </amexio-action>
   </amexio-card>
+</div>
+
+<div *ngIf="updateBook">
+  <app-update-book [idOfBookToUpdate]="idOfBookToUpdate"></app-update-book>
 </div>

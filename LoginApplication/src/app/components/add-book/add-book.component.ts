@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormArray, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { ActivatedRoute, Router } from "@angular/router";
+import { Books } from "src/app/model/Books.model";
 import { BooksService } from "src/app/service/books.service";
 
 @Component({
@@ -10,7 +11,7 @@ import { BooksService } from "src/app/service/books.service";
 })
 export class AddBookComponent implements OnInit {
   addBookForm: FormGroup;
-  bookData: AddBookData;
+  bookData: Books;
   formAdded = false;
 
   constructor(
@@ -24,7 +25,6 @@ export class AddBookComponent implements OnInit {
 
   ngOnInit() {
     this.addBookForm = this.fb.group({
-      // id: ['',Validators.required],
       bookName: ['',Validators.required],
       authorName: ['',Validators.required],
       discription: ['',Validators.required],
@@ -37,13 +37,8 @@ export class AddBookComponent implements OnInit {
     this.bookData=bookInComingData;
     this.formAdded = true;
     this.booksService.saveBook(this.bookData);
-
-    // to remove message "Add book successfully" after 2 second
-    setTimeout(() => {
-      this.formAdded = false;
+    alert("Added Book")
     this.router.navigate(['../showbooks'],{relativeTo:this.route});
-    }, 2000);
-    this.addBookForm.reset();
   }
 }
 

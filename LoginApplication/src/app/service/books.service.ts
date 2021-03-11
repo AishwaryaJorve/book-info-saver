@@ -64,4 +64,12 @@ export class BooksService implements OnInit{
     });
   }
 
+  updateBook(id:string,booksData:Object){
+    console.log(id+"ID"+booksData);
+    this.http.put("http://localhost:8080/updateBook"+"/"+id,booksData)
+    .subscribe((responseData) => {
+      console.log(responseData);
+    });
+  }
+
 }
