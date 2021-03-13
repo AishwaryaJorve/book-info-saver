@@ -7,6 +7,7 @@ import { LoginComponent } from "./components/login/login.component";
 import { ShowBooksComponent } from "./components/show-books/show-books.component";
 import { UpdateBookComponent } from "./components/show-books/update-book/update-book.component";
 import { ErrorPageComponent } from "./error-page/error-page.component";
+import { AuthGuard } from "./service/auth.guard";
 
 const appRoutes: Routes = [
   {
@@ -24,19 +25,20 @@ const appRoutes: Routes = [
     component: AddBookComponent,
     pathMatch: "full",
   },
-  // {
-  //   path:'',
-  //   component:LoginComponent,
-  //   pathMatch:'full'
-  // },
   {
     path: "dashboard",
     component: DashboardComponent,
     pathMatch: "full",
+    canActivate:[AuthGuard],
   },
   {
     path: "",
-    component: DashboardComponent,
+    component: LoginComponent,
+    pathMatch: "full",
+  },
+  {
+    path: "login",
+    component: LoginComponent,
     pathMatch: "full",
   },
   { path: "error-page", component: ErrorPageComponent },

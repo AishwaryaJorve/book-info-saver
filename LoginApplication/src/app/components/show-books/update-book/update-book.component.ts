@@ -18,7 +18,7 @@ import { ShowBooksComponent } from "../show-books.component";
   styleUrls: ["./update-book.component.css"],
 })
 export class UpdateBookComponent implements OnInit {
-  @Input() idOfBookToUpdate: string;
+  @Input() bookToUpdateWithAllData: Books;
   updateBookForm: FormGroup;
   formUpdated: boolean = false;
   bookInComingData: Books;
@@ -40,18 +40,23 @@ export class UpdateBookComponent implements OnInit {
     });
   }
 
-  // give call to the updateBook method of service to update book.
+  /**
+   *  give call to the updateBook method of service to update book.
+   */
   onUpdateBook() {
-    const bookInComingDataInObjectForm = this.updateBookForm.value;
-    this.bookInComingData = bookInComingDataInObjectForm;
-    this.bookService.updateBook(this.idOfBookToUpdate, this.bookInComingData);
+    //save form data in bookInComingData variable
+    this.bookInComingData = this.updateBookForm.value;
+    // call to updateBook method of bookService
+    this.bookService.updateBook(this.bookToUpdateWithAllData, this.bookInComingData);
     this.formUpdated = true;
     this.updateBookForm.reset();
     this.reloadCurrentRoute();
     alert("Book updated successfully");
   }
 
-  // after update book again show all books so reload book
+  /**
+   * after update book again show all books so reload book
+   */
   reloadCurrentRoute() {
     let currentUrl = this.router.url;
     this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
@@ -59,11 +64,15 @@ export class UpdateBookComponent implements OnInit {
     });
   }
 
-  // update form cancle button
+  /**
+   * update form cancle button
+   */
   onCancleUpdateBook(){
     this.reloadCurrentRoute();
   }
 
 }
+
+
 
 

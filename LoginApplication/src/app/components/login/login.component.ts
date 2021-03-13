@@ -7,6 +7,8 @@ import {
   FormControl,
 } from "@angular/forms";
 import { ActivatedRoute, Router } from "@angular/router";
+import { Login } from "src/app/model/Login.model";
+import { LoginService } from "src/app/service/login.service";
 
 @Component({
   selector: "app-login",
@@ -15,18 +17,17 @@ import { ActivatedRoute, Router } from "@angular/router";
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
-  model: AppModel;
+  loginData: Login;
   msg: any;
-
-
+  isLoginSuccessful: boolean = false;
+  token: String;
 
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    private fb: FormBuilder
-  ) {
-    this.model = new AppModel();
-  }
+    private fb: FormBuilder,
+    private loginService: LoginService
+  ) {}
 
   ngOnInit() {
     this.loginForm = this.fb.group({
@@ -36,13 +37,21 @@ export class LoginComponent implements OnInit {
   }
 
   onClickLogin() {
-    this.model = this.loginForm.value;
-    console.log(this.model);
-    this.router.navigate(["../dashboard"], { relativeTo: this.route });
+    this.isLoginSuccessful = true;
+    this.loginData = this.loginForm.value;
+
+    this.loginService.fetchTokenFromAPI(this.loginData).subscribe(
+      (response: any) => {
+        //success
+        console.log(response.jwt);
+        this.loginService.loginUser(response.jwt);
+        this.router.navigate(["../dashboard"], { relativeTo: this.route });
+      },
+      (error) => {
+        //error
+        console.log(error);
+      }
+    );
   }
 }
 
-export class AppModel {
-  userName: string;
-  password: string;
-}

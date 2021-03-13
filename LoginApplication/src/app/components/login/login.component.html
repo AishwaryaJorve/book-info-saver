@@ -1,79 +1,7 @@
-<!-- <div class="bootstrap-wrapper col-md-6 offset-md-3">
-  <div class="container text-center">
-    <div class="row"  class="login-form" >
-      <div class="col-md-6 offset-md-3">
-        <h1 class="text-center">Login here</h1>
-
-        <amexio-row>
-          <amexio-column [size]="30">
-            <amexio-form
-              [body-height]="'50px'"
-              form-name="loginForm"
-              [header]="true"
-              [show-error]="true"
-              #loginform
-            >
-
-
-              <amexio-form-header> Login Form </amexio-form-header>
 
 
 
-              <amexio-form-body>
-                <amexio-row>
-                  <amexio-column [size]="9">
-                    <amexio-text-input
-                      [(ngModel)]="model.userName"
-                      name="username"
-                      field-label="Username"
-                      [allow-blank]="false"
-                      place-holder="Enter Username here"
-                      [error-msg]="'Please Enter User name'"
-                    >
-                    </amexio-text-input>
-
-                    <amexio-password-input
-                      [enable-popover]="true"
-                      [field-label]="'Password'"
-                      [(ngModel)]="model.password"
-                      name="password"
-                      [place-holder]="'Enter Password'"
-                      [allow-blank]="false"
-                      [icon-feedback]="true"
-                    >
-                    </amexio-password-input>
-                  </amexio-column>
-                </amexio-row>
-              </amexio-form-body>
-
-              <amexio-form-action>
-                <amexio-button
-                  (onClick)="onSaveClick()"
-                  [label]="'Save'"
-                  [type]="'theme-color'"
-                  [tooltip]="'toolTip'"
-                >
-
-                </amexio-button>
-
-                <amexio-button
-                  (onClick)="onResetClick()"
-                  [label]="'Reset'"
-                  [type]="'green'"
-                  [tooltip]="'toolTip'"
-                ></amexio-button>
-
-              </amexio-form-action>
-            </amexio-form>
-          </amexio-column>
-        </amexio-row>
-      </div>
-    </div>
-  </div>
-</div> -->
-
-
-<div class="col-md-6 offset-md-3">
+<div class="col-md-6 offset-md-3" *ngIf="!isLoginSuccessful">
 
   <h1 class="text-center">Login here</h1><hr>
    <img class="login-image" src="../../assets/images/login.png">
@@ -133,8 +61,10 @@
   </amexio-form>
 </div>
 
-<!-- </div> -->
-
+<div *ngIf="isLoginSuccessful">
+  <!-- <app-navbar></app-navbar> -->
+  <router-outlet></router-outlet>
+</div>
 
 
 

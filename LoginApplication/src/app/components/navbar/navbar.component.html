@@ -7,43 +7,38 @@
       [color-palette]="'primary'"
       [class]="'header-style'"
     >
-
+      <amexio-nav-item
+        position-left
+        [type]="'menu'"
+        (onNavItemClick)="onClickDashboard()"
+        routerLinkActive="active"
+        [title]="'Dashboard'"
+      >
+      </amexio-nav-item>
 
       <amexio-nav-item
-      position-left
-      [type]="'menu'"
-      (onNavItemClick)="onClickDashboard()"
-      routerLinkActive="active"
-      [title]="'Dashboard'"
-    >
-    </amexio-nav-item>
+        position-left
+        [type]="'menu'"
+        (onNavItemClick)="onClickShowAllBook()"
+        [title]="'Show Book'"
+      >
+      </amexio-nav-item>
 
-    <amexio-nav-item
-      position-left
-      [type]="'menu'"
-      (onNavItemClick)="onClickShowAllBook()"
-      [title]="'Show Book'"
-    >
-    </amexio-nav-item>
+      <amexio-nav-item
+        position-left
+        [type]="'menu'"
+        (onNavItemClick)="onClickAddBook()"
+        [title]="'Add Book'"
+      >
+      </amexio-nav-item>
 
-    <amexio-nav-item
-      position-left
-      [type]="'menu'"
-      (onNavItemClick)="onClickAddBook()"
-      [title]="'Add Book'"
-    >
-    </amexio-nav-item>
-
-
-    <!-- <amexio-nav-item
-    position-left
-    [type]="'menu'"
-    (onNavItemClick)="onClickHome()"
-    [title]="'Log out'"
-  >
-  </amexio-nav-item> -->
+      <amexio-nav-item
+        position-left
+        [type]="'menu'"
+        (onNavItemClick)="onClickHome()"
+        [title]="'Log out'"
+      >
+      </amexio-nav-item>
     </amexio-nav>
   </amexio-column>
 </amexio-row>
-
-

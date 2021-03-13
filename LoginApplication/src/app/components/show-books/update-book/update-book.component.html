@@ -1,4 +1,4 @@
-<!-- <app-navbar></app-navbar> -->
+<app-navbar></app-navbar>
 
 <div class="add-book-form col-md-6 offset-md-3">
 
@@ -12,6 +12,7 @@
           <amexio-text-input
           formControlName="authorName"
           [field-label]="'Author Name'"
+          [(ngModel)]="bookToUpdateWithAllData.authorName"
           [allow-blank]="false"
           [error-msg]="'Please enter author name'"
           [enable-popover]="true"
@@ -23,6 +24,7 @@
         <amexio-text-input
         formControlName="discription"
         [field-label]="'Discription'"
+        [(ngModel)]="bookToUpdateWithAllData.discription"
         [allow-blank]="false"
         [error-msg]="'Please enter discription'"
         [enable-popover]="true"

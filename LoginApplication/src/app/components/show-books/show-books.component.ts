@@ -13,7 +13,7 @@ export class ShowBooksComponent implements OnInit {
   bookNameForSearch:string='';
   allBooks: Books[] = [];
   updateBook:boolean=false;
-  idOfBookToUpdate:string;
+  bookToUpdateWithAllData:Books;
 
   confirmdialoguematerial: boolean;
   confirmdialoguenonmaterial:boolean;
@@ -34,16 +34,16 @@ export class ShowBooksComponent implements OnInit {
   }
 
   //called to the deleteBookbyId() of the service method
-  onDeleteClickDeleteBook(id: any) {
-    this.books.deleteBookbyId(id)
+  onDeleteClickDeleteBook(bookId: any) {
+    this.books.deleteBookbyId(bookId)
     setTimeout(()=>{
     this.fetchBooksFromBooksService();
     },1000)
   }
 
   // comes id of book which to be update through button onclick
-  onupdateClick(idOfBookToUpdate){
-    this.idOfBookToUpdate=idOfBookToUpdate;
+  onUpdateClick(bookToUpdateWithAllData:Books){
+    this.bookToUpdateWithAllData=bookToUpdateWithAllData;
     this.updateBook=true;
   }
 

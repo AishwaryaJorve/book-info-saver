@@ -17,7 +17,7 @@ navBarData:string;
   }
 
   onClickHome(){
-    this.router.navigate([''],{relativeTo:this.route});
+    this.router.navigate(['../login'],{relativeTo:this.route});
   }
 
   onClickDashboard(){
