@@ -20,7 +20,6 @@ export class AddBookComponent implements OnInit {
     private router:Router, private route:ActivatedRoute
   ) {
     // create object of AppBookData class
-    this.bookData = new AddBookData();
   }
 
   ngOnInit() {

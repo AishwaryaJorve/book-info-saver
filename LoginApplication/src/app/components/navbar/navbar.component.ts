@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { LoginService } from 'src/app/service/login.service';
 
 @Component({
   selector: 'app-navbar',
@@ -11,12 +12,14 @@ export class NavbarComponent implements OnInit {
 navBarData:string;
 
   constructor(private router:Router,
-    private route:ActivatedRoute) { }
+    private route:ActivatedRoute,private loginService:LoginService) { }
 
   ngOnInit() {
   }
 
   onClickHome(){
+
+    this.loginService.logout();
     this.router.navigate(['../login'],{relativeTo:this.route});
   }
 

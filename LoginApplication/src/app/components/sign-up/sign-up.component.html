@@ -1,16 +1,12 @@
-
-
-
-<div class="col-md-6 offset-md-3" *ngIf="!isLoginSuccessful">
-
-  <h1 class="text-center">Login here</h1><hr>
-   <img class="login-image" src="../../assets/images/login.png">
-
-<br>
-
+<!-- <div class="col-md-6 offset-md-3">
+  <h1 class="text-center">SignUP here</h1>
+  <hr /> -->
+  <!-- <img class="login-image" src="../../assets/images/login.png" /> -->
+<!--
+  <br />
 
   <amexio-form [formGroup]="loginForm" [header]="true" class="login-form">
-    <amexio-form-header>Login form</amexio-form-header>
+    <amexio-form-header>SignUp form</amexio-form-header>
     <amexio-form-body>
       <amexio-row>
         <amexio-column size="8">
@@ -36,17 +32,14 @@
             [icon-feedback]="false"
           >
           </amexio-password-input>
-
-
         </amexio-column>
       </amexio-row>
     </amexio-form-body>
     <amexio-form-action>
       <amexio-button
-      (onClick)="onClickLogin()"
-      [disabled]="!loginForm.valid"
-        class="col-md-6 offset-md-3"
-        [label]="'Save'"
+        (onClick)="onClickLogin()"
+        [disabled]="!loginForm.valid"
+        [label]="'Login'"
         [type]="'theme-color'"
         [tooltip]="'toolTip'"
         [icon]="'icon'"
@@ -59,10 +52,11 @@
       </amexio-button>
     </amexio-form-action>
   </amexio-form>
-</div>
-
+</div> -->
+<!--
 <div *ngIf="isLoginSuccessful">
   <router-outlet></router-outlet>
-</div>
+</div> -->
 
-
+<br><br><br>
+<h1>SignUp</h1>

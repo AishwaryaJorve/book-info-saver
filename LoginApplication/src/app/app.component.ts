@@ -12,5 +12,6 @@ export class AppComponent implements OnInit{
 
   }
 
+  onLoginClick(data){}
 
 }

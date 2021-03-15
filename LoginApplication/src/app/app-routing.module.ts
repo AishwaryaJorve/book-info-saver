@@ -19,11 +19,13 @@ const appRoutes: Routes = [
     path: "showbooks",
     component: ShowBooksComponent,
     pathMatch: "full",
+    canActivate:[AuthGuard],
   },
   {
     path: "addbook",
     component: AddBookComponent,
     pathMatch: "full",
+    canActivate:[AuthGuard],
   },
   {
     path: "dashboard",
